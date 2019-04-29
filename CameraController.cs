@@ -64,12 +64,12 @@ public class CameraController : MonoBehaviour
 
     void Lerp(Transform targetPosition)
     {
-        transform.position = Vector3.Lerp(transform.position, lerpTarget.transform.position, Time.deltaTime * transitionSpeed);
+        transform.position = Vector3.Lerp(transform.position, targetPosition.transform.position, Time.deltaTime * transitionSpeed);
 
         Vector3 currentAngle = new Vector3(
-            Mathf.LerpAngle(transform.rotation.eulerAngles.x, lerpTarget.transform.rotation.eulerAngles.x, Time.deltaTime * transitionSpeed),
-            Mathf.LerpAngle(transform.rotation.eulerAngles.y, lerpTarget.transform.rotation.eulerAngles.y, Time.deltaTime * transitionSpeed),
-            Mathf.LerpAngle(transform.rotation.eulerAngles.z, lerpTarget.transform.rotation.eulerAngles.z, Time.deltaTime * transitionSpeed));
+            Mathf.LerpAngle(transform.rotation.eulerAngles.x, targetPosition.transform.rotation.eulerAngles.x, Time.deltaTime * transitionSpeed),
+            Mathf.LerpAngle(transform.rotation.eulerAngles.y, targetPosition.transform.rotation.eulerAngles.y, Time.deltaTime * transitionSpeed),
+            Mathf.LerpAngle(transform.rotation.eulerAngles.z, targetPosition.transform.rotation.eulerAngles.z, Time.deltaTime * transitionSpeed));
 
         transform.eulerAngles = currentAngle;
 
